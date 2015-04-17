@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StudentReport
+	xmlns="Report"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="Report Report.xsd">
+	<Tasks>
+		<Theoretical>
+			<Task id="1">
+				<Name>Overview of Eclipse IDE</Name>
+				<Duration>4</Duration>
+			</Task>
+			<Task id="2">
+				<Name>Learning the Java Language Basics</Name>
+				<Duration>12</Duration>
+			</Task>
+			<Task id="4">
+				<Name>Learning the Java Language advanced features</Name>
+				<Duration>17</Duration>
+			</Task>
+			<Task id="6">
+				<Name>Learning XML Language</Name>
+				<Duration>6</Duration>
+			</Task>
+			<Task id="8">
+				<Name>Learning XSLT and XPath Basics</Name>
+				<Duration>14</Duration>
+			</Task>
+			<Task id="10">
+				<Name>Struts Framework Fundamentals</Name>
+				<Duration>8</Duration>
+			</Task>
+			<Task id="13">
+				<Name>Mastering Microsoft Project</Name>
+				<Duration>3</Duration>
+			</Task>
+			<Task id="15">
+				<Name>Software development process. Development team and its structure</Name>
+				<Duration>12</Duration>
+			</Task>
+		</Theoretical>
+		<Practical>
+			<Task id="3">
+				<Name>Practical Task</Name>
+				<Duration>4</Duration>
+			</Task>
+			<Task id="5">
+				<Name>Practical Task</Name>
+				<Duration>16</Duration>
+			</Task>
+			<Task id="7">
+				<Name>Practical Task</Name>
+				<Duration>8</Duration>
+			</Task>
+			<Task id="9">
+				<Name>Equipment Stylesheets</Name>
+				<Duration>8</Duration>
+			</Task>
+			<Task id="11">
+				<Name>Struts Framework Task</Name>
+				<Duration>40</Duration>
+			</Task>
+			<Task id="12">
+				<Name>Java Message Service Task</Name>
+				<Duration>20</Duration>
+			</Task>
+			<Task id="14">
+				<Name>MS Project Practical Task</Name>
+				<Duration>8</Duration>
+			</Task>
+			<Task id="16">
+				<Name>Team Project</Name>
+				<Duration>80</Duration>
+			</Task>
+		</Practical>
+	</Tasks>
+
+	<Courses>
+		<Course id="1">
+			<Name>Overview of Eclipse IDE</Name>
+			<Author>Иванов И.И.</Author>
+			<CreationDate>2001-01-01</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="1"/>
+				</Theoretical>
+			</Tasks>
+		</Course>
+		<Course id="2">
+			<Name>Основы языка Java</Name>
+			<Author>Петров П.П.</Author>
+			<CreationDate>2002-02-02</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="2"/>
+				</Theoretical>
+				<Practical>
+					<Task id="3"/>
+				</Practical>
+			</Tasks>
+		</Course>
+		<Course id="3">
+			<Name>Язык Java - расширенные возможности</Name>
+			<Author>Сидоров С.С.</Author>
+			<CreationDate>2003-03-03</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="4"/>
+				</Theoretical>
+				<Practical>
+					<Task id="5"/>
+				</Practical>
+			</Tasks>
+		</Course>
+		<Course id="4">
+			<Name>Язык XML</Name>
+			<Author>Кузнецов К.К.</Author>
+			<CreationDate>2004-04-04</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="6"/>
+				</Theoretical>
+				<Practical>
+					<Task id="7"/>
+				</Practical>
+			</Tasks>
+		</Course>
+		<Course id="5">
+			<Name>Язык XSLT и XPath</Name>
+			<Author>Михайлов М.М.</Author>
+			<CreationDate>2005-05-05</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="8"/>
+				</Theoretical>
+				<Practical>
+					<Task id="9"/>
+				</Practical>
+			</Tasks>
+		</Course>
+		<Course id="6">
+			<Name>Технология Struts Framework</Name>
+			<Author>Никитин Н.Н.</Author>
+			<CreationDate>2006-06-06</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="10"/>
+				</Theoretical>
+				<Practical>
+					<Task id="11"/>
+					<Task id="12"/>
+				</Practical>
+			</Tasks>
+		</Course>
+		<Course id="7">
+			<Name>Процесс производства программного обеспечения</Name>
+			<Author>Андреев А.А.</Author>
+			<CreationDate>2007-07-07</CreationDate>
+			<Tasks>
+				<Theoretical>
+					<Task id="13"/>
+					<Task id="15"/>
+				</Theoretical>
+				<Practical>
+					<Task id="14"/>
+				</Practical>
+			</Tasks>
+		</Course>
+		<Course id="8">
+			<Name>Процесс разработки программного обеспечения</Name>
+			<Author>Борисов Б.Б.</Author>
+			<CreationDate>2009-09-09</CreationDate>
+			<Tasks>
+				<Practical>
+					<Task id="16"/>
+				</Practical>
+			</Tasks>
+		</Course>
+	</Courses>
+
+	<Programs>
+		<Program id="1">
+			<Name>Полная программа</Name>
+			<Author>Сергеев С.С.</Author>
+			<CreationDate>2010-01-01</CreationDate>
+			<Courses>
+				<Course id="1"/>
+				<Course id="2"/>
+				<Course id="3"/>
+				<Course id="4"/>
+				<Course id="5"/>
+				<Course id="6"/>
+				<Course id="7"/>
+				<Course id="8"/>
+			</Courses>
+		</Program>
+		<Program id="2">
+			<Name>Укороченная программа</Name>
+			<Author>Николаев Н.Н.</Author>
+			<CreationDate>2012-02-02</CreationDate>
+			<Courses>
+				<Course id="1"/>
+				<Course id="2"/>
+				<Course id="3"/>
+				<Course id="7"/>
+				<Course id="8"/>
+			</Courses>
+		</Program>
+		<Program id="3">
+			<Name>Специальная программа 1</Name>
+			<Author>Антонов А.А.</Author>
+			<CreationDate>2014-04-04</CreationDate>
+			<Courses>
+				<Course id="4"/>
+				<Course id="5"/>
+			</Courses>
+		</Program>
+	</Programs>
+
+	<Students>
+		<Student id="1">
+			<FullName>Alexander Sergeev</FullName>
+			<City>Moscow</City>
+			<Email>a.sergeev@mail.ru</Email>
+			<StartDate>2015-04-01</StartDate>
+			<IsSigned>false</IsSigned>
+			<Program id="1"/>
+		</Student>
+		<Student id="2">
+			<FullName>Boris Romanov</FullName>
+			<City>St. Petersburg</City>
+			<Email>b.romanov@gmail.com</Email>
+			<StartDate>2015-01-15</StartDate>
+			<IsSigned>false</IsSigned>
+			<Program id="1"/>
+		</Student>
+		<Student id="3">
+			<FullName>Vadim Petrov</FullName>
+			<City>Satatov</City>
+			<Email>v.petrov@epam.com</Email>
+			<StartDate>2014-12-31</StartDate>
+			<IsSigned>true</IsSigned>
+			<Program id="3"/>
+		</Student>
+		<Student id="4">
+			<FullName>Ivan Fedorov</FullName>
+			<City>Engels</City>
+			<Email>i.fedorov@epam.com</Email>
+			<StartDate>2015-02-01</StartDate>
+			<IsSigned>true</IsSigned>
+			<Program id="2"/>
+		</Student>
+	</Students>
+
+
+	<Reports>
+		<Report studentId="1">
+			<Tasks>
+				<Theoretical>
+					<Task id="1">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="2">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="4">
+						<Rate>4</Rate>
+						<Status>Finished</Status>
+					</Task>
+					<Task id="6">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="8">
+						<Status>In progress</Status>
+					</Task>
+					<Task id="10">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="13">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="15">
+						<Status>Not started</Status>
+					</Task>
+				</Theoretical>
+				<Practical>
+					<Task id="3">
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="5">
+						<Rate>4</Rate>
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="7">
+						<Status>Verifying</Status>
+					</Task>
+					<Task id="9">
+						<Status>In progress</Status>
+					</Task>
+					<Task id="11">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="12">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="14">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="16">
+						<Status>Not started</Status>
+					</Task>
+				</Practical>
+			</Tasks>
+		</Report>
+		<Report studentId="2">
+			<Tasks>
+				<Theoretical>
+					<Task id="1">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="2">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="4">
+						<Rate>4</Rate>
+						<Status>Finished</Status>
+					</Task>
+					<Task id="6">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="8">
+						<Status>In progress</Status>
+					</Task>
+					<Task id="10">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="13">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="15">
+						<Status>Not started</Status>
+					</Task>
+				</Theoretical>
+				<Practical>
+					<Task id="3">
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="5">
+						<Rate>4</Rate>
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="7">
+						<Status>Verifying</Status>
+					</Task>
+					<Task id="9">
+						<Status>In progress</Status>
+					</Task>
+					<Task id="11">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="12">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="14">
+						<Status>Not started</Status>
+					</Task>
+					<Task id="16">
+						<Status>Not started</Status>
+					</Task>
+				</Practical>
+			</Tasks>
+		</Report>
+		<Report studentId="3">
+			<Tasks>
+				<Theoretical>
+					<Task id="6">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="8">
+						<Status>Finished</Status>
+					</Task>
+				</Theoretical>
+				<Practical>
+					<Task id="5">
+						<Rate>5</Rate>
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="9">
+						<Rate>5</Rate>
+						<Status>Accepted</Status>
+					</Task>
+				</Practical>
+			</Tasks>
+		</Report>
+		<Report studentId="4">
+			<Tasks>
+				<Theoretical>
+					<Task id="1">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="2">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="4">
+						<Rate>4</Rate>
+						<Status>Finished</Status>
+					</Task>
+					<Task id="13">
+						<Status>Finished</Status>
+					</Task>
+					<Task id="15">
+						<Rate>4</Rate>
+						<Status>Finished</Status>
+					</Task>
+				</Theoretical>
+				<Practical>
+					<Task id="3">
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="5">
+						<Rate>4</Rate>
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="14">
+						<Rate>4</Rate>
+						<Status>Accepted</Status>
+					</Task>
+					<Task id="16">
+						<Rate>5</Rate>
+						<Status>Accepted</Status>
+					</Task>
+				</Practical>
+			</Tasks>
+		</Report>
+	</Reports>
+</StudentReport>
