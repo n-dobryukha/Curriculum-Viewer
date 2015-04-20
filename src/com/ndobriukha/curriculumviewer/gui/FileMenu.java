@@ -1,0 +1,52 @@
+package com.ndobriukha.curriculumviewer.gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+@SuppressWarnings("serial")
+public class FileMenu extends JMenu {
+	private static final String MENU_NAME = "File";
+	private static final String IMPORT_FROM_XML = "Import from XML...";
+	private static final String EXIT = "Exit";
+	
+	public FileMenu() {
+		super(MENU_NAME);
+		JMenuItem importFromXmlItem = new JMenuItem(IMPORT_FROM_XML);
+		importFromXmlItem.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileopen = new JFileChooser();
+				fileopen.setCurrentDirectory(new File("."));
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
+				fileopen.setFileFilter(filter);
+				int ret = fileopen.showDialog(null, "Open File");				
+			}
+		});
+		KeyStroke ctrlO = KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK);
+		importFromXmlItem.setAccelerator(ctrlO);
+		
+		JMenuItem exitItem = new JMenuItem(EXIT);
+		exitItem.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int ret = JOptionPane.showConfirmDialog(null, "Really Exit?", "Exit", JOptionPane.OK_CANCEL_OPTION);
+			    if (ret == JOptionPane.YES_OPTION) System.exit(0);				
+			}
+		});
+		KeyStroke altF4 = KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_MASK);
+		exitItem.setAccelerator(altF4);
+		
+		add(importFromXmlItem);
+		add(exitItem);
+	}
+}
