@@ -4,74 +4,70 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="Report Report.xsd">
 	<Tasks>
-		<Theoretical>
-			<Task id="1">
-				<Name>Overview of Eclipse IDE</Name>
-				<Duration>4</Duration>
-			</Task>
-			<Task id="2">
-				<Name>Learning the Java Language Basics</Name>
-				<Duration>12</Duration>
-			</Task>
-			<Task id="4">
-				<Name>Learning the Java Language advanced features</Name>
-				<Duration>17</Duration>
-			</Task>
-			<Task id="6">
-				<Name>Learning XML Language</Name>
-				<Duration>6</Duration>
-			</Task>
-			<Task id="8">
-				<Name>Learning XSLT and XPath Basics</Name>
-				<Duration>14</Duration>
-			</Task>
-			<Task id="10">
-				<Name>Struts Framework Fundamentals</Name>
-				<Duration>8</Duration>
-			</Task>
-			<Task id="13">
-				<Name>Mastering Microsoft Project</Name>
-				<Duration>3</Duration>
-			</Task>
-			<Task id="15">
-				<Name>Software development process. Development team and its structure</Name>
-				<Duration>12</Duration>
-			</Task>
-		</Theoretical>
-		<Practical>
-			<Task id="3">
-				<Name>Practical Task</Name>
-				<Duration>4</Duration>
-			</Task>
-			<Task id="5">
-				<Name>Practical Task</Name>
-				<Duration>16</Duration>
-			</Task>
-			<Task id="7">
-				<Name>Practical Task</Name>
-				<Duration>8</Duration>
-			</Task>
-			<Task id="9">
-				<Name>Equipment Stylesheets</Name>
-				<Duration>8</Duration>
-			</Task>
-			<Task id="11">
-				<Name>Struts Framework Task</Name>
-				<Duration>40</Duration>
-			</Task>
-			<Task id="12">
-				<Name>Java Message Service Task</Name>
-				<Duration>20</Duration>
-			</Task>
-			<Task id="14">
-				<Name>MS Project Practical Task</Name>
-				<Duration>8</Duration>
-			</Task>
-			<Task id="16">
-				<Name>Team Project</Name>
-				<Duration>80</Duration>
-			</Task>
-		</Practical>
+		<Task id="1" type="Theoretical">
+			<Name>Overview of Eclipse IDE</Name>
+			<Duration>4</Duration>
+		</Task>
+		<Task id="2" type="Theoretical">
+			<Name>Learning the Java Language Basics</Name>
+			<Duration>12</Duration>
+		</Task>
+		<Task id="3" type="Practical">
+			<Name>Practical Task</Name>
+			<Duration>4</Duration>
+		</Task>
+		<Task id="4" type="Theoretical">
+			<Name>Learning the Java Language advanced features</Name>
+			<Duration>17</Duration>
+		</Task>
+		<Task id="5" type="Practical">
+			<Name>Practical Task</Name>
+			<Duration>16</Duration>
+		</Task>
+		<Task id="6" type="Theoretical">
+			<Name>Learning XML Language</Name>
+			<Duration>6</Duration>
+		</Task>
+		<Task id="7" type="Practical">
+			<Name>Practical Task</Name>
+			<Duration>8</Duration>
+		</Task>
+		<Task id="8" type="Theoretical">
+			<Name>Learning XSLT and XPath Basics</Name>
+			<Duration>14</Duration>
+		</Task>
+		<Task id="9" type="Practical">
+			<Name>Equipment Stylesheets</Name>
+			<Duration>8</Duration>
+		</Task>
+		<Task id="10" type="Theoretical">
+			<Name>Struts Framework Fundamentals</Name>
+			<Duration>8</Duration>
+		</Task>
+		<Task id="11" type="Practical">
+			<Name>Struts Framework Task</Name>
+			<Duration>40</Duration>
+		</Task>
+		<Task id="12" type="Practical">
+			<Name>Java Message Service Task</Name>
+			<Duration>20</Duration>
+		</Task>
+		<Task id="13" type="Theoretical">
+			<Name>Mastering Microsoft Project</Name>
+			<Duration>3</Duration>
+		</Task>
+		<Task id="14" type="Practical">
+			<Name>MS Project Practical Task</Name>
+			<Duration>8</Duration>
+		</Task>
+		<Task id="15" type="Theoretical">
+			<Name>Software development process. Development team and its structure</Name>
+			<Duration>12</Duration>
+		</Task>
+		<Task id="16" type="Practical">
+			<Name>Team Project</Name>
+			<Duration>80</Duration>
+		</Task>
 	</Tasks>
 
 	<Courses>
@@ -80,9 +76,7 @@
 			<Author>Иванов И.И.</Author>
 			<CreationDate>2001-01-01</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="1"/>
-				</Theoretical>
+				<Task id="1" type="Theoretical"/>
 			</Tasks>
 		</Course>
 		<Course id="2">
@@ -90,12 +84,8 @@
 			<Author>Петров П.П.</Author>
 			<CreationDate>2002-02-02</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="2"/>
-				</Theoretical>
-				<Practical>
-					<Task id="3"/>
-				</Practical>
+				<Task id="2" type="Theoretical"/>
+				<Task id="3" type="Practical"/>
 			</Tasks>
 		</Course>
 		<Course id="3">
@@ -103,12 +93,8 @@
 			<Author>Сидоров С.С.</Author>
 			<CreationDate>2003-03-03</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="4"/>
-				</Theoretical>
-				<Practical>
-					<Task id="5"/>
-				</Practical>
+				<Task id="4" type="Theoretical"/>
+				<Task id="5" type="Practical"/>
 			</Tasks>
 		</Course>
 		<Course id="4">
@@ -116,12 +102,8 @@
 			<Author>Кузнецов К.К.</Author>
 			<CreationDate>2004-04-04</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="6"/>
-				</Theoretical>
-				<Practical>
-					<Task id="7"/>
-				</Practical>
+				<Task id="6" type="Theoretical"/>
+				<Task id="7" type="Practical"/>
 			</Tasks>
 		</Course>
 		<Course id="5">
@@ -129,12 +111,8 @@
 			<Author>Михайлов М.М.</Author>
 			<CreationDate>2005-05-05</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="8"/>
-				</Theoretical>
-				<Practical>
-					<Task id="9"/>
-				</Practical>
+				<Task id="8" type="Theoretical"/>
+				<Task id="9" type="Practical"/>
 			</Tasks>
 		</Course>
 		<Course id="6">
@@ -142,13 +120,9 @@
 			<Author>Никитин Н.Н.</Author>
 			<CreationDate>2006-06-06</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="10"/>
-				</Theoretical>
-				<Practical>
-					<Task id="11"/>
-					<Task id="12"/>
-				</Practical>
+				<Task id="10" type="Theoretical"/>
+				<Task id="11" type="Practical"/>
+				<Task id="12" type="Practical"/>
 			</Tasks>
 		</Course>
 		<Course id="7">
@@ -156,13 +130,9 @@
 			<Author>Андреев А.А.</Author>
 			<CreationDate>2007-07-07</CreationDate>
 			<Tasks>
-				<Theoretical>
-					<Task id="13"/>
-					<Task id="15"/>
-				</Theoretical>
-				<Practical>
-					<Task id="14"/>
-				</Practical>
+				<Task id="13" type="Theoretical"/>
+				<Task id="14" type="Practical"/>
+				<Task id="15" type="Theoretical"/>
 			</Tasks>
 		</Course>
 		<Course id="8">
@@ -170,9 +140,7 @@
 			<Author>Борисов Б.Б.</Author>
 			<CreationDate>2009-09-09</CreationDate>
 			<Tasks>
-				<Practical>
-					<Task id="16"/>
-				</Practical>
+				<Task id="16" type="Practical"/>
 			</Tasks>
 		</Course>
 	</Courses>
@@ -255,181 +223,167 @@
 	<Reports>
 		<Report studentId="1">
 			<Tasks>
-				<Theoretical>
-					<Task id="1">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="2">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="4">
-						<Rate>4</Rate>
-						<Status>Finished</Status>
-					</Task>
-					<Task id="6">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="8">
-						<Status>In progress</Status>
-					</Task>
-					<Task id="10">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="13">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="15">
-						<Status>Not started</Status>
-					</Task>
-				</Theoretical>
-				<Practical>
-					<Task id="3">
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="5">
-						<Rate>4</Rate>
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="7">
-						<Status>Verifying</Status>
-					</Task>
-					<Task id="9">
-						<Status>In progress</Status>
-					</Task>
-					<Task id="11">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="12">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="14">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="16">
-						<Status>Not started</Status>
-					</Task>
-				</Practical>
+				<Task id="1" type="Theoretical">
+					<Status xsi:type="TheoreticalTaskStatusType">Finished</Status>
+				</Task>
+				<Task id="2" type="Theoretical">
+					<Status xsi:type="TheoreticalTaskStatusType">Finished</Status>
+				</Task>
+				<Task id="3" type="Practical">
+					<Status xsi:type="PracticalTaskStatusType">Accepted</Status>
+				</Task>
+				<!--<Task id="4" type="Theoretical">
+					<Rate>4</Rate>
+					<Status>Finished</Status>
+				</Task>
+				<Task id="5" type="Practical">
+					<Rate>4</Rate>
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="6" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="7" type="Practical">
+					<Status>Verifying</Status>
+				</Task>
+				<Task id="8" type="Theoretical">
+					<Status>In progress</Status>
+				</Task>
+				<Task id="9" type="Practical">
+					<Status>In progress</Status>
+				</Task>
+				<Task id="10" type="Theoretical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="11" type="Practical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="12" type="Practical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="13" type="Theoretical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="14" type="Practical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="15" type="Theoretical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="16" type="Practical">
+					<Status>Not started</Status>
+				</Task>-->
 			</Tasks>
 		</Report>
+		<!--
 		<Report studentId="2">
 			<Tasks>
-				<Theoretical>
-					<Task id="1">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="2">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="4">
-						<Rate>4</Rate>
-						<Status>Finished</Status>
-					</Task>
-					<Task id="6">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="8">
-						<Status>In progress</Status>
-					</Task>
-					<Task id="10">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="13">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="15">
-						<Status>Not started</Status>
-					</Task>
-				</Theoretical>
-				<Practical>
-					<Task id="3">
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="5">
-						<Rate>4</Rate>
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="7">
-						<Status>Verifying</Status>
-					</Task>
-					<Task id="9">
-						<Status>In progress</Status>
-					</Task>
-					<Task id="11">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="12">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="14">
-						<Status>Not started</Status>
-					</Task>
-					<Task id="16">
-						<Status>Not started</Status>
-					</Task>
-				</Practical>
+				<Task id="1" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="2" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="3" type="Practical">
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="4" type="Theoretical">
+					<Rate>4</Rate>
+					<Status>Finished</Status>
+				</Task>
+				<Task id="5" type="Practical">
+					<Rate>4</Rate>
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="6" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="7" type="Practical">
+					<Status>Verifying</Status>
+				</Task>
+				<Task id="8" type="Theoretical">
+					<Status>In progress</Status>
+				</Task>
+				<Task id="9" type="Practical">
+					<Status>In progress</Status>
+				</Task>
+				<Task id="10" type="Theoretical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="11" type="Practical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="12" type="Practical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="13" type="Theoretical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="14" type="Practical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="15" type="Theoretical">
+					<Status>Not started</Status>
+				</Task>
+				<Task id="16" type="Practical">
+					<Status>Not started</Status>
+				</Task>
 			</Tasks>
 		</Report>
 		<Report studentId="3">
 			<Tasks>
-				<Theoretical>
-					<Task id="6">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="8">
-						<Status>Finished</Status>
-					</Task>
-				</Theoretical>
-				<Practical>
-					<Task id="5">
-						<Rate>5</Rate>
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="9">
-						<Rate>5</Rate>
-						<Status>Accepted</Status>
-					</Task>
-				</Practical>
+				<Task id="5" type="Practical">
+					<Rate>5</Rate>
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="6" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="8" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>				
+				<Task id="9" type="Practical">
+					<Rate>5</Rate>
+					<Status>Accepted</Status>
+				</Task>
 			</Tasks>
 		</Report>
 		<Report studentId="4">
 			<Tasks>
-				<Theoretical>
-					<Task id="1">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="2">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="4">
-						<Rate>4</Rate>
-						<Status>Finished</Status>
-					</Task>
-					<Task id="13">
-						<Status>Finished</Status>
-					</Task>
-					<Task id="15">
-						<Rate>4</Rate>
-						<Status>Finished</Status>
-					</Task>
-				</Theoretical>
-				<Practical>
-					<Task id="3">
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="5">
-						<Rate>4</Rate>
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="14">
-						<Rate>4</Rate>
-						<Status>Accepted</Status>
-					</Task>
-					<Task id="16">
-						<Rate>5</Rate>
-						<Status>Accepted</Status>
-					</Task>
-				</Practical>
+				<Task id="1" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="2" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="3" type="Practical">
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="4" type="Theoretical">
+					<Rate>4</Rate>
+					<Status>Finished</Status>
+				</Task>
+				<Task id="5" type="Practical">
+					<Rate>4</Rate>
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="13" type="Theoretical">
+					<Status>Finished</Status>
+				</Task>
+				<Task id="14" type="Practical">
+					<Rate>4</Rate>
+					<Status>Accepted</Status>
+				</Task>
+				<Task id="15" type="Theoretical">
+					<Rate>4</Rate>
+					<Status>Finished</Status>
+				</Task>
+				<Task id="16" type="Practical">
+					<Rate>5</Rate>
+					<Status>Accepted</Status>
+				</Task>
 			</Tasks>
 		</Report>
+		-->
 	</Reports>
 </StudentReport>

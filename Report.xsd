@@ -3,7 +3,8 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="Report"
 	xmlns:rep="Report"
-	elementFormDefault="qualified">
+	elementFormDefault="qualified"
+	>
 
 	<!-- ROOT ELEMENT -->
 	<xsd:element name="StudentReport">
@@ -17,23 +18,15 @@
 			</xsd:sequence>
 		</xsd:complexType>
 
-		<xsd:keyref name="keyRefTheoreticalTaskIdInCourses" refer="rep:keyTheoreticalTaskId">
-			<xsd:selector xpath="rep:Courses/rep:Course/rep:Tasks/rep:Theoretical/rep:Task"/>
+		<xsd:keyref name="keyRefTaskIdInCourses" refer="rep:keyTaskId">
+			<xsd:selector xpath="rep:Courses/rep:Course/rep:Tasks/rep:Task"/>
+			<xsd:field xpath="@type"/>
 			<xsd:field xpath="@id"/>
 		</xsd:keyref>
 
-		<xsd:keyref name="keyRefTheoreticalTaskIdInReports" refer="rep:keyTheoreticalTaskId">
-			<xsd:selector xpath="rep:Reports/rep:Report/rep:Tasks/rep:Theoretical/rep:Task"/>
-			<xsd:field xpath="@id"/>
-		</xsd:keyref>
-
-		<xsd:keyref name="keyRefPracticalTaskIdInCourses" refer="rep:keyPracticalTaskId">
-			<xsd:selector xpath="rep:Courses/rep:Course/rep:Tasks/rep:Practical/rep:Task"/>
-			<xsd:field xpath="@id"/>
-		</xsd:keyref>
-
-		<xsd:keyref name="keyRefPracticalTaskIdInReports" refer="rep:keyPracticalTaskId">
-			<xsd:selector xpath="rep:Reports/rep:Report/rep:Tasks/rep:Practical/rep:Task"/>
+		<xsd:keyref name="keyRefTaskIdInReports" refer="rep:keyTaskId">
+			<xsd:selector xpath="rep:Reports/rep:Report/rep:Tasks/rep:Task"/>
+			<xsd:field xpath="@type"/>
 			<xsd:field xpath="@id"/>
 		</xsd:keyref>
 
@@ -56,12 +49,9 @@
 	<!-- ELEMENTS -->
 	<!-- Tasks -->
 	<xsd:element name="Tasks" type="rep:TasksListType">
-		<xsd:key name="keyTheoreticalTaskId">
-			<xsd:selector xpath="rep:Theoretical/rep:Task"/>
-			<xsd:field xpath="@id"/>
-		</xsd:key>
-		<xsd:key name="keyPracticalTaskId">
-			<xsd:selector xpath="rep:Practical/rep:Task"/>
+		<xsd:key name="keyTaskId">
+			<xsd:selector xpath="rep:Task"/>
+			<xsd:field xpath="@type"/>
 			<xsd:field xpath="@id"/>
 		</xsd:key>
 	</xsd:element>
@@ -121,29 +111,31 @@
 		<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
 	</xsd:complexType>
 
+	<!-- BaseTask Type -->
+	<xsd:complexType name="BaseTaskType">
+		<xsd:complexContent>
+			<xsd:extension base="rep:BaseIdentifiableType">
+				<xsd:attribute name="type" type="rep:TaskKindType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
 	<!-- Task Type -->
 	<xsd:complexType name="TaskType">
 		<xsd:complexContent>
-			<xsd:extension base="rep:BaseIdentifiableType">
+			<xsd:extension base="rep:BaseTaskType">
 				<xsd:sequence>
-					<xsd:element name="Name" type="rep:StringType"/>
-					<xsd:element name="Duration" type="xsd:int"/>
+					<xsd:element name="Name" type="rep:StringType" />
+					<xsd:element name="Duration" type="xsd:int" />
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:complexType name="TaskItemsList">
-		<xsd:sequence>
-			<xsd:element name="Task" type="rep:TaskType" maxOccurs="unbounded"/>
-		</xsd:sequence>
-	</xsd:complexType>
-
 	<!-- TasksList Type -->
 	<xsd:complexType name="TasksListType">
 		<xsd:sequence>
-			<xsd:element name="Theoretical" type="rep:TaskItemsList" minOccurs="0"/>
-			<xsd:element name="Practical" type="rep:TaskItemsList" minOccurs="0"/>
+			<xsd:element name="Task" type="rep:TaskType" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -159,7 +151,7 @@
 	<!-- BaseTasksList Type -->
 	<xsd:complexType name="BaseTasksListType">
 		<xsd:sequence>
-			<xsd:element name="Task" type="rep:BaseIdentifiableType" maxOccurs="unbounded"/>
+			<xsd:element name="Task" type="rep:BaseTaskType" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -169,14 +161,7 @@
 			<xsd:extension base="rep:BaseIdentifiableType">
 				<xsd:sequence>
 					<xsd:group ref="rep:PropertyGroup" />
-					<xsd:element name="Tasks">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="Theoretical" type="rep:BaseTasksListType" minOccurs="0"/>
-								<xsd:element name="Practical" type="rep:BaseTasksListType" minOccurs="0"/>
-							</xsd:sequence>
-						</xsd:complexType>
-					</xsd:element>
+					<xsd:element name="Tasks" type="rep:BaseTasksListType" minOccurs="0"/>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -250,8 +235,15 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
+	<xsd:simpleType name="TaskRateType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
 	<xsd:simpleType name="TheoreticalTaskStatusType">
-		<xsd:restriction base="xsd:string">
+		<xsd:restriction base="rep:StringType">		
 			<xsd:enumeration value="Not started"/>
 			<xsd:enumeration value="In progress"/>
 			<xsd:enumeration value="Finished"/>
@@ -259,7 +251,7 @@
 	</xsd:simpleType>
 
 	<xsd:simpleType name="PracticalTaskStatusType">
-		<xsd:restriction base="xsd:string">
+		<xsd:restriction base="rep:StringType">
 			<xsd:enumeration value="Not started"/>
 			<xsd:enumeration value="In progress"/>
 			<xsd:enumeration value="Verifying"/>
@@ -267,14 +259,23 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:simpleType name="TaskRateType">
-		<xsd:restriction base="xsd:positiveInteger">
-			<xsd:minInclusive value="1"/>
-			<xsd:maxInclusive value="5"/>
-		</xsd:restriction>
+	<xsd:simpleType name="TaskStatusType">
+		<xsd:union memberTypes="rep:TheoreticalTaskStatusType rep:PracticalTaskStatusType" />
 	</xsd:simpleType>
 
 	<xsd:complexType name="TaskItemForReportType">
+		<xsd:complexContent>
+			<xsd:extension base="rep:BaseTaskType">
+				<xsd:sequence>
+					<xsd:element name="Rate" type="rep:TaskRateType" minOccurs="0"/>
+					<xsd:element name="Status" type="rep:TaskStatusType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--
+	<xsd:complexType abstract="true" name="TaskItemForReportType">
 		<xsd:complexContent>
 			<xsd:extension base="rep:BaseIdentifiableType">
 				<xsd:sequence>
@@ -283,8 +284,8 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-
-	<xsd:complexType name="TheoreticalTaskItemForReportType">
+	
+	<xsd:complexType name="Theoretical">
 		<xsd:complexContent>
 			<xsd:extension base="rep:TaskItemForReportType">
 				<xsd:sequence>
@@ -294,7 +295,7 @@
 		</xsd:complexContent>
 	</xsd:complexType>
 
-	<xsd:complexType name="PracticalTaskItemForReportType">
+	<xsd:complexType name="Practical">
 		<xsd:complexContent>
 			<xsd:extension base="rep:TaskItemForReportType">
 				<xsd:sequence>
@@ -303,34 +304,14 @@
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+	-->
 
 	<xsd:complexType name="ReportItemType">
 		<xsd:sequence>
 			<xsd:element name="Tasks">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="Theoretical">
-							<xsd:complexType>
-								<xsd:sequence>
-									<xsd:element name="Task" type="rep:TheoreticalTaskItemForReportType" maxOccurs="unbounded"/>
-								</xsd:sequence>
-							</xsd:complexType>
-							<xsd:unique name="uniqueTheoreticalTaskInReport">
-								<xsd:selector xpath="rep:Task"/>
-								<xsd:field xpath="@id"/>
-							</xsd:unique>
-						</xsd:element>
-						<xsd:element name="Practical">
-							<xsd:complexType>
-								<xsd:sequence>
-									<xsd:element name="Task" type="rep:PracticalTaskItemForReportType" maxOccurs="unbounded"/>
-								</xsd:sequence>
-							</xsd:complexType>
-							<xsd:unique name="uniquePracticalTaskInReport">
-								<xsd:selector xpath="rep:Task"/>
-								<xsd:field xpath="@id"/>
-							</xsd:unique>
-						</xsd:element>
+						<xsd:element name="Task" type="rep:TaskItemForReportType" maxOccurs="unbounded"/>
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
@@ -340,8 +321,20 @@
 
 	<xsd:complexType name="ReportItemsListType">
 		<xsd:sequence>
-			<xsd:element name="Report" type="rep:ReportItemType" maxOccurs="unbounded"/>
+			<xsd:element name="Report" type="rep:ReportItemType" maxOccurs="unbounded">
+				<xsd:unique name="uniqueTasksInReport">
+					<xsd:selector xpath="rep:Tasks/rep:Task"/>
+					<xsd:field xpath="@id"/>
+				</xsd:unique>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
+
+	<xsd:simpleType name="TaskKindType">
+		<xsd:restriction base="rep:StringType">
+			<xsd:enumeration value="Theoretical"/>
+			<xsd:enumeration value="Practical"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 </xsd:schema>
