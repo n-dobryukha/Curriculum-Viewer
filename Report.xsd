@@ -242,25 +242,25 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 	
-	<xsd:simpleType name="TheoreticalTaskStatusType">
+	<xsd:simpleType name="TheoreticalStatus">
 		<xsd:restriction base="rep:StringType">		
-			<xsd:enumeration value="Not started"/>
-			<xsd:enumeration value="In progress"/>
-			<xsd:enumeration value="Finished"/>
+			<xsd:enumeration value="NOT_STARTED"/>
+			<xsd:enumeration value="IN_PROCESS"/>
+			<xsd:enumeration value="FINISHED"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 
-	<xsd:simpleType name="PracticalTaskStatusType">
+	<xsd:simpleType name="PracticalStatus">
 		<xsd:restriction base="rep:StringType">
-			<xsd:enumeration value="Not started"/>
-			<xsd:enumeration value="In progress"/>
-			<xsd:enumeration value="Verifying"/>
-			<xsd:enumeration value="Accepted"/>
+			<xsd:enumeration value="NOT_STARTED"/>
+			<xsd:enumeration value="IN_PROCESS"/>
+			<xsd:enumeration value="VERIFYING"/>
+			<xsd:enumeration value="ACCEPTED"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 
 	<xsd:simpleType name="TaskStatusType">
-		<xsd:union memberTypes="rep:TheoreticalTaskStatusType rep:PracticalTaskStatusType" />
+		<xsd:union memberTypes="rep:TheoreticalStatus rep:PracticalStatus" />
 	</xsd:simpleType>
 
 	<xsd:complexType name="TaskItemForReportType">
@@ -333,8 +333,8 @@
 
 	<xsd:simpleType name="TaskKindType">
 		<xsd:restriction base="rep:StringType">
-			<xsd:enumeration value="Theoretical"/>
-			<xsd:enumeration value="Practical"/>
+			<xsd:enumeration value="THEORETICAL"/>
+			<xsd:enumeration value="PRACTICAL"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 </xsd:schema>

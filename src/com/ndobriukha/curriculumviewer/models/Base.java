@@ -45,7 +45,11 @@ abstract public class Base {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 	
-	
-	
+	public abstract String getData();
 }

@@ -12,6 +12,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import com.ndobriukha.curriculumviewer.Context;
 
 @SuppressWarnings("serial")
 public class FileMenu extends JMenu {
@@ -19,8 +22,11 @@ public class FileMenu extends JMenu {
 	private static final String IMPORT_FROM_XML = "Import from XML...";
 	private static final String EXIT = "Exit";
 	
-	public FileMenu() {
+	private Context context;
+	
+	public FileMenu(Context context) {
 		super(MENU_NAME);
+		this.context = context;
 		JMenuItem importFromXmlItem = new JMenuItem(IMPORT_FROM_XML);
 		importFromXmlItem.addActionListener(new ActionListener() {			
 			@Override
@@ -29,7 +35,13 @@ public class FileMenu extends JMenu {
 				fileopen.setCurrentDirectory(new File("."));
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
 				fileopen.setFileFilter(filter);
-				int ret = fileopen.showDialog(null, "Open File");				
+				int ret = fileopen.showDialog(null, "Open File");
+				if (ret == JFileChooser.APPROVE_OPTION) {
+					File xmlFile = fileopen.getSelectedFile();
+					context.setXmlFile(xmlFile);
+					context.getImportController().ImportXmlFile();
+					context.getTreeController().BuildTree();
+				}
 			}
 		});
 		KeyStroke ctrlO = KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK);

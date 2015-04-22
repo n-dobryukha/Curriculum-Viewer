@@ -1,22 +1,19 @@
 package com.ndobriukha.curriculumviewer;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.io.IOException;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTree;
+import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import com.ndobriukha.curriculumviewer.gui.FileMenu;
-import com.ndobriukha.curriculumviewer.models.XmlTree;
 
 public class ViewerApp {
 
@@ -55,34 +52,39 @@ public class ViewerApp {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		frame.getContentPane().add(splitPane, BorderLayout.CENTER);
+		
+		
+		JTextArea textDetail = new JTextArea();
+		Context context = new Context(textDetail);
+		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 
-		JMenu mnFile = new FileMenu();
+		JMenu mnFile = new FileMenu(context);
 		menuBar.add(mnFile);
 
-		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-		frame.getContentPane().add(splitPane, BorderLayout.CENTER);
+		JScrollPane treeView = new JScrollPane(context.getTree());
+		splitPane.setLeftComponent(treeView);
 
-		/*JPanel treePanel = new JPanel();
-		treePanel.setMinimumSize(new Dimension(200, 30));
-		splitPane.setLeftComponent(treePanel);*/
-
-		JPanel viewPanel = new JPanel();
-		splitPane.setRightComponent(viewPanel);
+		textDetail.setEditable(false);
+		textDetail.setFont(new Font("Courier New", Font.ITALIC, 12));
+		splitPane.setRightComponent(textDetail);
 		
-		try {
+		/*try {
 			JTree tree = new XmlTree("StudentReport.xml");
 			tree.setMinimumSize(new Dimension(200, 30));
 			splitPane.setLeftComponent(tree);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
