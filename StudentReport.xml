@@ -74,7 +74,7 @@
 		<Course id="1">
 			<Name>Overview of Eclipse IDE</Name>
 			<Author>Иванов И.И.</Author>
-			<CreationDate>2001-01-01</CreationDate>
+			<CreationDate>2001s-01-01</CreationDate>
 			<Tasks>
 				<Task id="1" type="THEORETICAL"/>
 			</Tasks>

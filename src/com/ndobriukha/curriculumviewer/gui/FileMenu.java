@@ -12,10 +12,13 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.ndobriukha.curriculumviewer.Context;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Реализация меню приложения
+ */
 @SuppressWarnings("serial")
 public class FileMenu extends JMenu {
 	private static final String MENU_NAME = "File";
@@ -27,6 +30,7 @@ public class FileMenu extends JMenu {
 	public FileMenu(Context context) {
 		super(MENU_NAME);
 		this.context = context;
+		// Пункт меню импорта из xml-файла
 		JMenuItem importFromXmlItem = new JMenuItem(IMPORT_FROM_XML);
 		importFromXmlItem.addActionListener(new ActionListener() {			
 			@Override
@@ -39,14 +43,20 @@ public class FileMenu extends JMenu {
 				if (ret == JFileChooser.APPROVE_OPTION) {
 					File xmlFile = fileopen.getSelectedFile();
 					context.setXmlFile(xmlFile);
-					context.getImportController().ImportXmlFile();
-					context.getTreeController().BuildTree();
+					try {
+						context.getImportController().ImportXmlFile();
+						context.getTreeController().BuildTree();
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					
 				}
 			}
 		});
+		// Добавление комбинации Ctrl+O для выбора xml-файла
 		KeyStroke ctrlO = KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK);
 		importFromXmlItem.setAccelerator(ctrlO);
-		
+		// Пункт меню выхода из приложения
 		JMenuItem exitItem = new JMenuItem(EXIT);
 		exitItem.addActionListener(new ActionListener() {			
 			@Override
@@ -55,6 +65,7 @@ public class FileMenu extends JMenu {
 			    if (ret == JOptionPane.YES_OPTION) System.exit(0);				
 			}
 		});
+		// Добавление комбинации Alt+F4 для выхода из приложения
 		KeyStroke altF4 = KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_MASK);
 		exitItem.setAccelerator(altF4);
 		

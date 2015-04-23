@@ -3,7 +3,11 @@ package com.ndobriukha.curriculumviewer.models;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Модель студента
+ */
 public class Student extends Base {
 
 	private String city;

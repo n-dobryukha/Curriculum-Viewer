@@ -1,8 +1,12 @@
 package com.ndobriukha.curriculumviewer.models;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Базовый абстраутный класс для модели данных
+ * Содержит "id" и "name"
+ */
 abstract public class Base {
 	private int id;
-	
 	private String name;
 	
 	public Base(int id, String name) {
@@ -44,11 +48,6 @@ abstract public class Base {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return name;
 	}
 	
 	public abstract String getData();

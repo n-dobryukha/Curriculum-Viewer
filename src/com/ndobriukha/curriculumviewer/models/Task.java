@@ -1,7 +1,11 @@
 package com.ndobriukha.curriculumviewer.models;
 
 import com.ndobriukha.curriculumviewer.models.enums.TaskType;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Модель учебной задачи
+ */
 public class Task extends Base {
 
 	private TaskType type;
@@ -47,6 +51,8 @@ public class Task extends Base {
 	public String getData() {
 		StringBuilder result = new StringBuilder();
 		result.append("Title: " + getName() + "\n");
+		result.append("Duration (hrs): " + getDuration() + "\n");
+		result.append("Type: " + getType() + "\n");
 		return result.toString();
 	}
 

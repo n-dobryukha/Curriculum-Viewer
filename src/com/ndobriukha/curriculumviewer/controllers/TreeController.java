@@ -8,9 +8,15 @@ import javax.swing.tree.DefaultTreeModel;
 import com.ndobriukha.curriculumviewer.Context;
 import com.ndobriukha.curriculumviewer.models.Course;
 import com.ndobriukha.curriculumviewer.models.Program;
+import com.ndobriukha.curriculumviewer.models.Report;
 import com.ndobriukha.curriculumviewer.models.Student;
 import com.ndobriukha.curriculumviewer.models.Task;
-
+import com.ndobriukha.curriculumviewer.models.TaskForReport;
+/**
+ * 
+ * @author Nikita_Dobriukha
+ *  онтроллер работы с JTree-деревом
+ */
 public class TreeController {
 
 	Context context;
@@ -19,6 +25,9 @@ public class TreeController {
 		this.context = context;
 	}
 	
+	/**
+	 * —троит JTree-дерево по хран€щимс€ в контексте данным
+	 */
 	public void BuildTree() {
 		
 		DefaultTreeModel treeModel = (DefaultTreeModel)context.getTree().getModel();
@@ -26,7 +35,9 @@ public class TreeController {
 		root.removeAllChildren();
 		
 		for (Entry<Integer, Student> entryStudent: context.getStudents().entrySet()) {
-			Student student = entryStudent.getValue();			
+			Student student = entryStudent.getValue();	
+			int studentId = student.getId();			
+			Report report = context.getReports().get(studentId);			
 			DefaultMutableTreeNode studentNode = new DefaultMutableTreeNode(student);
 			root.add(studentNode);
 			Program program = student.getProgram();
@@ -38,7 +49,15 @@ public class TreeController {
 				programNode.add(courseNode);
 				for (Entry<Integer, Task> entryTask: course.getTasks().entrySet()) {
 					Task task = entryTask.getValue();
-					DefaultMutableTreeNode taskNode = new DefaultMutableTreeNode(task);
+					int taskId = task.getId();
+					DefaultMutableTreeNode taskNode;
+					if (report != null) {
+						TaskForReport taskReport = report.getTasks().get(taskId);
+						taskNode = new DefaultMutableTreeNode(taskReport);
+					}
+					else {
+						taskNode = new DefaultMutableTreeNode(task);
+					}
 					courseNode.add(taskNode);					
 				}
 			}

@@ -1,7 +1,12 @@
 package com.ndobriukha.curriculumviewer.models;
 
 import com.ndobriukha.curriculumviewer.models.enums.TaskStatus;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Модель задачи в отчете.
+ * Расширяет класс Task
+ */
 public class TaskForReport extends Task {
 	
 	private int rate = 0;
@@ -24,5 +29,15 @@ public class TaskForReport extends Task {
 	public TaskStatus getStatus() {
 		return status;
 	}
+
+	@Override
+	public String getData() {
+		StringBuilder result = new StringBuilder(super.getData());
+		result.append("Ststus: " + getStatus() + "\n");
+		if (getRate() != 0) result.append("Rate: " + getRate() + "\n");
+		return result.toString();
+	}
+	
+	
 
 }

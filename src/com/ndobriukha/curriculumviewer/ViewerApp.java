@@ -1,6 +1,7 @@
 package com.ndobriukha.curriculumviewer;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -14,8 +15,17 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import com.ndobriukha.curriculumviewer.gui.FileMenu;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Главное окно приложения.
+ * Содержит меню и двухпанельную рабочую область.
+ */
 public class ViewerApp {
+	
+	private final Dimension MINIMUM_WINDOW_SIZE = new Dimension(800, 600);
+	private final Dimension MINIMUM_TREEVIEW_SIZE = new Dimension(250, 400);
+	private final Font DEFAULT_FONT = new Font("Courier New", Font.ITALIC, 12);
 
 	private JFrame frame;
 
@@ -40,27 +50,23 @@ public class ViewerApp {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setMinimumSize(MINIMUM_WINDOW_SIZE);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		frame.getContentPane().add(splitPane, BorderLayout.CENTER);
-		
-		
+				
 		JTextArea textDetail = new JTextArea();
 		Context context = new Context(textDetail);
 		
@@ -71,20 +77,13 @@ public class ViewerApp {
 		menuBar.add(mnFile);
 
 		JScrollPane treeView = new JScrollPane(context.getTree());
+		treeView.setMinimumSize(new Dimension(MINIMUM_TREEVIEW_SIZE));
+		treeView.setFont(DEFAULT_FONT);
 		splitPane.setLeftComponent(treeView);
 
 		textDetail.setEditable(false);
-		textDetail.setFont(new Font("Courier New", Font.ITALIC, 12));
-		splitPane.setRightComponent(textDetail);
-		
-		/*try {
-			JTree tree = new XmlTree("StudentReport.xml");
-			tree.setMinimumSize(new Dimension(200, 30));
-			splitPane.setLeftComponent(tree);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		textDetail.setFont(DEFAULT_FONT);
+		splitPane.setRightComponent(textDetail);		
 	}
 
 }

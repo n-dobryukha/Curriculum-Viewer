@@ -20,7 +20,12 @@ import com.ndobriukha.curriculumviewer.models.Program;
 import com.ndobriukha.curriculumviewer.models.Report;
 import com.ndobriukha.curriculumviewer.models.Student;
 import com.ndobriukha.curriculumviewer.models.Task;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Главный контекст приложения.
+ * Содержит даныне и контроллеры управления данными.
+ */
 public class Context {
 
 	private File xmlFile;
@@ -30,17 +35,18 @@ public class Context {
 	private HashMap<Integer, Student> students = new HashMap<Integer, Student>();
 	private HashMap<Integer, Report> reports = new HashMap<Integer, Report>();
 	private JTree tree = new JTree(new DefaultMutableTreeNode("Students"));
-	private JTextArea txetDetail;
-	
+	private JTextArea txetDetail;	
 
 	private ImportController importController = new ImportController(this);
 	private TreeController treeController = new TreeController(this);
 	
 	public Context(JTextArea textDetail) {
-		this.txetDetail = textDetail;
 		
+		this.txetDetail = textDetail;
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
-			
+			/**
+			 * Отображает детализацию выбранного узла.
+			 */
 			@Override
 			public void valueChanged(TreeSelectionEvent e) {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
@@ -49,8 +55,7 @@ public class Context {
 				else
 					getTextDetail().setText(null);
 			}
-		});
-		
+		});		
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 	}
 	

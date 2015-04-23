@@ -1,7 +1,11 @@
 package com.ndobriukha.curriculumviewer.models;
 
 import java.util.HashMap;
-
+/**
+ * 
+ * @author Nikita_Dobriukha
+ * Модель отчета по студенту и выполненным им задачам
+ */
 public class Report {
 
 	private Student student;
